@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="./libs/jquery-1.12.4.min.js"></script>
+    <!-- 引入bootstrap的js文件 -->
+    <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 导入接口文档js文件 -->
+    <script src="./js/http.js"></script>
+    <!-- 导入个人中心的js文档 -->
+    <script src="./js/user.js"></script>
 
 </head>
 
@@ -47,7 +53,7 @@
                         <input style="display: block" name="userPic" type="file" id="exampleInputFile">
                         <!-- 给label标签的for属性赋值,值是input标签的id,那这样的话点击label就相当于点击了input -->
                         <br>
-                        <label for="exampleInputFile">
+                        <label for="exampleInputFile" class="label">
                             <img src="./images/uploads_icon.jpg" style="height: 50px;" alt="">
                         </label>
                     </div>
@@ -68,6 +74,25 @@
             </form>
         </div>
     </div>
+
+    <!-- 模态框HTML -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">友情提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>用户名或密码错误&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </body>
 
 </html>
