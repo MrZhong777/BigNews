@@ -39,8 +39,13 @@ $(function () {
                 },
                 success: function (backData) {
                     if (backData.code == 201) {
-                        alert(backData.msg);
-                        window.location.reload();
+                        // 弹出修改成功的模态框
+                        $("#myModal1 .modal-body p").text(backData.msg);
+                        $('#myModal1').modal();
+                        // 点击确认编辑模态框消失并重新刷新页面
+                        $("#myModal1 .confirm").click(function () {
+                            location.reload();
+                        })
                     }
                 }
             });
@@ -50,6 +55,8 @@ $(function () {
 
     // 点击编辑按钮事件,动态创建的编辑按钮,采用事件委托注册事件
     $(".table").on("click", ".edit", function () {
+        // 获取当前文章类别的id值
+        let id = $(this).attr("index");
         // 发送ajax请求,查询文章类别信息
         $.ajax({
             url: BigNew.category_search,
@@ -67,16 +74,57 @@ $(function () {
         // 弹出模态框
         $('#exampleModal').modal();
         // 点击编辑按钮,发送ajax请求,修改数据
-        $.ajax({
-            url: BigNew.category_edit,
-            type: 'post',
-            dataType: 'json',
-            data: '',
-            success: function (backData) {
+        $(".new-create").click(function () {
+            $.ajax({
+                url: BigNew.category_edit,
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    id: id,
+                    name: $("#recipient-name").val(),
+                    slug: $("#message-text").val()
+                },
+                success: function (backData) {
+                    if (backData.code == 200) {
+                        // 弹出修改成功的模态框
+                        $("#myModal1 .modal-body p").text(backData.msg);
+                        $('#myModal1').modal();
+                        // 点击确认编辑模态框消失并重新刷新页面
+                        $("#myModal1 .confirm").click(function () {
+                            $('#exampleModal').modal("hide");
+                            location.reload();
+                        })
+                    }
 
-            }
+                }
+            });
         });
 
+    });
+
+
+    // 点击删除按钮的事件,动态创建,事件委托
+    $(".table").on("click", ".delete", function () {
+        // 发送ajax请求
+        $.ajax({
+            url: BigNew.category_delete,
+            type: 'post',
+            dataType: 'json',
+            data: {
+                id: $(this).attr("index")
+            },
+            success: function (backData) {
+                if (backData.code == 204) {
+                    // 弹出修改成功的模态框
+                    $("#myModal1 .modal-body p").text(backData.msg);
+                    $('#myModal1').modal();
+                    // 点击确认编辑模态框消失并重新刷新页面
+                    $("#myModal1 .confirm").click(function () {
+                        location.reload();
+                    })
+                }
+            }
+        });
     });
 
 

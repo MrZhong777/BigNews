@@ -19,11 +19,16 @@ $(function () {
         dataType: 'json',
         success: function (backData) {
             // 渲染数据
-            $("#inputEmail1").val(backData.data.username);
-            $("#inputEmail2").val(backData.data.nickname);
-            $("#inputEmail3").val(backData.data.email);
+            // $("#inputEmail1").val(backData.data.username);
+            // $("#inputEmail2").val(backData.data.nickname);
+            // $("#inputEmail3").val(backData.data.email);
             $(".user_pic").attr("src", backData.data.userPic);
-            $("#inputEmail4").val(backData.data.password);
+            // $("#inputEmail4").val(backData.data.password);
+
+            // 循环遍历对象赋值
+            for (let key in backData.data) {
+                $("." + key).val(backData.data[key]);
+            }
 
         }
     });

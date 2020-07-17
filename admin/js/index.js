@@ -27,9 +27,13 @@ $(function () {
             // 下拉ul菜单
             $(".level02").slideToggle();
             // 默认选中第一个模块,添加active改变字体颜色
-            $(".level02>li:eq(0)").addClass("active");
+            $(".level02>li:eq(0)").addClass("active").siblings().removeClass("active");
             // 小箭头做旋转动画
             $(this).find("b").toggleClass("active");
+            // 跳转到默认执行第一个小li模块
+            $(".level02>li:eq(0) a")[0].click();
+        } else {
+            $(".level02>li").removeClass("active");
         }
     });
 
@@ -37,6 +41,11 @@ $(function () {
     $(".level02>li").click(function () {
         // 排他思想
         $(this).addClass("active").siblings().removeClass("active");
+    });
+
+    // 点击顶部栏的个人中心跳转,左侧导航栏个人中心高亮
+    $(".user_center_link a:eq(0)").click(function () {
+        $("#user").click();
     });
 
 });

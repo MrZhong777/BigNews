@@ -84,6 +84,27 @@
             </div>
         </div>
     </div>
+
+
+    <!-- 模态框HTML -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">友情提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>用户名或密码错误&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success confirm" data-dismiss="modal">确认</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
     <!-- 模板引擎 -->
     <script id="category" type="text/html">
         {{each data}}
@@ -91,8 +112,8 @@
             <td>{{$value.name}}</td>
             <td>{{$value.slug}}</td>
             <td class="text-center">
-                <a href="javascript:void(0);" data-toggle="modal" class=" btn btn-info btn-xs edit" index="{{$value.id}}">编辑</a>
-                <a href="javascript:void(0);" class="btn btn-danger btn-xs" index="{{$value.id}}">删除</a>
+                <a href="javascript:;" data-toggle="modal" class=" btn btn-info btn-xs edit" index="{{$value.id}}">编辑</a>
+                <a href="javascript:;" class="btn btn-danger btn-xs delete" index="{{$value.id}}">删除</a>
             </td>
         </tr>
         {{/each}}
