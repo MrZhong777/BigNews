@@ -21,6 +21,16 @@
         comment_pass: baseURL + '/admin/comment/pass',//文章评论通过
         comment_reject: baseURL + '/admin/comment/reject',//文章评论不通过
         comment_delete: baseURL + '/admin/comment/delete',//文章评论删除
+        home_page: baseURL + '/index/hotpic',// 首页焦点图
+        article_type: baseURL + '/index/category',// 用户界面 文章类型
+        current_information: baseURL + '/index/latest', // 最新资讯
+        top_ranking: baseURL + '/index/rank', // 热门排行
+        current_comments: baseURL + '/index/latest_comment', // 最新评论
+        focus: baseURL + '/index/attention', // 焦点关注
+        article_content: baseURL + '/index/article', // 文章详细信息
+        comment_list1: baseURL + '/index/get_comment', // 文章评论列表
+        make_comment: baseURL + '/index/post_comment', // 发表评论
+        user_article_query: baseURL + '/index/search' // 文章搜索
     };
 
     //暴露接口

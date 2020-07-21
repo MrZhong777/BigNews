@@ -48,7 +48,7 @@
                     <tr>
                         <td colspan="3" class="text-center">
                             <a href="javascript:void(0)" class="btn btn-success" id="xinzengfenlei" data-toggle="modal"
-                                data-target="#myModal">新增分类</a>
+                                data-target="#exampleModal">新增分类</a>
                         </td>
                     </tr>
                 </tfoot>
@@ -78,8 +78,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary new-create">新增</button>
+                    <button type="button" class="btn btn-default cancle" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary new-create" data-dismiss="modal">新增</button>
                 </div>
             </div>
         </div>
@@ -112,7 +112,7 @@
             <td>{{$value.name}}</td>
             <td>{{$value.slug}}</td>
             <td class="text-center">
-                <a href="javascript:;" data-toggle="modal" class=" btn btn-info btn-xs edit" index="{{$value.id}}">编辑</a>
+                <a href="javascript:;" data-toggle="modal" class=" btn btn-info btn-xs edit" index="{{$value.id}}" data-target="#exampleModal">编辑</a>
                 <a href="javascript:;" class="btn btn-danger btn-xs delete" index="{{$value.id}}">删除</a>
             </td>
         </tr>

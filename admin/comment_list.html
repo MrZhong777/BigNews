@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="css/iconfont.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="./libs/jquery-1.12.4.min.js"></script>
+  <script src="./libs/bootstrap/js/bootstrap.min.js"></script>
   <script src="./libs/template-web.js"></script>
+  <script src="./js/http.js"></script>
+  <script src="./js/comment_list.js"></script>
+  <!-- 导入分页插件js文件 -->
+  <script src="./libs/jquery.twbsPagination.js"></script>
 </head>
 
 <body>
@@ -142,7 +147,7 @@
         </tbody>
       </table>
       <div class="row text-center">
-        <ul class="pagination pagination-sm">
+        <!-- <ul class="pagination pagination-sm">
           <li class="page-item first disabled"><a href="#" class="page-link">首页</a></li>
           <li class="page-item prev disabled"><a href="#" class="page-link">上一页</a></li>
           <li class="page-item active"><a href="#" class="page-link">1</a></li>
@@ -155,11 +160,34 @@
           <li class="page-item next"><a href="#" class="page-link">下一页</a></li>
           <li class="page-item last"><a href="#" class="page-link">尾页</a></li>
         </ul>
-        <ul id="pagination" class="pagination-sm"></ul>
+        <ul id="pagination" class="pagination-sm"></ul> -->
+        <ul id="pagination-demo" class="pagination-sm"></ul>
       </div>
 
     </div>
   </div>
+  <script id="comment_list" type="text/html">
+    {{each data.data v}}
+    <tr>
+      <td>{{v.author}}</td>
+      <td>{{v.content}}</td>
+      <td>{{v.title}}</td>
+      <td>{{v.date}} {{v.time}}</td>
+      <td>{{v.state}}</td>
+      <td class="text-center">
+        {{if v.state=="已通过"}}
+        <a href="javascript:void(0);;" class="btn btn-warning btn-xs btn_refuse" data_id={{v.id}}>拒绝</a>
+        <a href="javascript:void(0);;" class="btn btn-danger btn-xs btn_delete" data_id={{v.id}}>删除</a>
+        {{else if v.state=="待审核"}}
+        <a href="javascript:void(0);;" class="btn btn-warning btn-xs btn_approval" data_id={{v.id}}>批准</a>
+        <a href="javascript:void(0);;" class="btn btn-danger btn-xs btn_delete" data_id={{v.id}}>删除</a>
+        {{else}}
+        <a href="javascript:void(0);;" class="btn btn-danger btn-xs btn_delete" data_id={{v.id}}>删除</a>
+        {{/if}}
+      </td>
+    </tr>
+    {{/each}}
+  </script>
 </body>
 
 </html>
